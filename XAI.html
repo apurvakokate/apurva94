@@ -5,7 +5,7 @@
 <h1>Post-Hoc to Ante-Hoc GNN Explainability</h1>
 <p>Let's go on the journey and our main stops are the following: Creation of Graph Neural Networks (GNNs), Explaining GNNs, Main challenges and solutions, Post-Hoc explainability and Ante-Hoc explainability.  </p>
 <p>The scariest part of the journey for me is the jargon so I will do my best to keep things simple, understandable and fun. </p>
-<p>And who am I? - A fellow traveller wanting to make the journey easier of others. </p> 
+<p>And who am I? - A fellow curious traveller wanting to make the journey easier of others. </p> 
 
 <h1>Let first Define the GNN</h1>
 <p>This is going to be the most crucial piece of information needed to visualize the terrain ahead. <br> A GNN is a structured combination of learning blocks. The holy grail to understand this family of models is <a href="https://arxiv.org/pdf/1812.08434.pdf">The review paper by Jie Zhou et.al</a>.
@@ -13,9 +13,15 @@
 <br>Then they choose a way to combine all that information, some may treat everyones opinion equally, some may ignore that nosy neighbor and listen to the daily news. As the days go by each one learn what is called aggregation of information. 
 <br>Finally, each day, each second we all are changing, we are updating ourselves and will use the updated knowledge to talk to people. </p>
 
-<h1>Explaining GNNs (Coming soon)</h1>
+<h1>Explaining GNNs</h1>
+<p>I have read about multiple ways of people attempted to explain GNNS. These are:</p>
+<ul>
+  <li>Instance based vs Model based: Instance based method aim to uncover the rationale behind a specific prediction made by the model for a given input. Model based methods aim to uncover the general rationale learnt by the model for each posiible output</li>
+  <li>Feature Attribution vs Prototype and Concept attribution: Feature attribution methods aim to assign importance scores between 0 and 1 to each discrete feature of the input. For Graphs these are generally nodes and edges. Concept attribution methods assign importance scores to high level embeddings representative of a learnt concept. In case of graphs these are typically prototypical motifs</li>
+  <li>Post-Hoc vs Ante Hoc methods:Post-Hoc methods aims to explain a trained GNN model where as Ante-Hoc methods restrict information flow during the mofdel's training process</li>
+</ul>
 
-Like what you read, let me know via email: kokatea@oregonstate.edu
+Like what you read or want to suggest changes? Let me know via email: kokatea@oregonstate.edu
 
 </body>
 </html> 
