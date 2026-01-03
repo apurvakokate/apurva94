@@ -1,25 +1,222 @@
 <!DOCTYPE html>
-<html>
- <head>
-   <title>Apurva Portfolio</title>
- </head>
- <body>
-   <div class=”container”>
-     <div class=”blurb”>
-       <h1>Hi, My name is Apurva Kokate!</h1>
-       <p> I am a PHD student at Oregon State University with one goal in mind - make AI more explainable </a></p>
-       <p>And Why? So it doesn't replace human intelligence but encourages them to question its behaviour.</p>
-       <p> My ideologies wouldn't find direction without the strong guidance provided by my advisor <a href="https://web.engr.oregonstate.edu/~xfern/" >Dr.Xioli Fern</a> </p>
-       <button onclick="document.location='ApurvaResume_Scientific.pdf'">My Resume</button>  
-       <button onclick="document.location='XAI.html'">GNN Explainability Notes</button>
-       <button onclick="document.location='XAIneed.html'">Need for XAI</button>
-       <button onclick="document.location='UncertainAI.html'">Human Centric Uncertain AI</button>
-       <button onclick="window.location.href='https://events.oregonstate.edu/event/phd-prelim-exam-apurva-kokate'">Passed my Prelims!</button>
-     </div>
-   </div>
-   <footer>
-      <p>Contact</p>
-      <span>&#9993;</span><a href=”mailto:kokatea@oregonstate.edu”>kokatea@oregonstate.edu</a>
-   </footer>
- </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apurva Kokate | Explainable AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: #fafafa;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 4rem 10%;
+      background: #0f172a;
+      color: white;
+    }
+
+    header h1 {
+      font-family: "Source Serif 4", serif;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      max-width: 700px;
+      opacity: 0.9;
+    }
+
+    section {
+      padding: 4rem 10%;
+    }
+
+    h2 {
+      font-family: "Source Serif 4", serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .card h3 {
+      margin-top: 1rem;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    button {
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: #2563eb;
+      color: white;
+      font-weight: 600;
+    }
+
+    footer {
+      padding: 2rem 10%;
+      background: #020617;
+      color: #cbd5f5;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Apurva Kokate</h1>
+  <p>
+    PhD Candidate in Artificial Intelligence at Oregon State University.  
+    I build self-explaining machine learning systems—especially graph neural networks—
+    that align model reasoning with human and domain understanding.
+  </p>
+  <p>
+    Advisor: <a href="https://web.engr.oregonstate.edu/~xfern/" target="_blank">Dr. Xioli Fern</a>
+  </p>
+  <br>
+  <button onclick="window.location.href='CV___Apurva (4).pdf'">Curriculum Vitae</button>
+</header>
+
+<!-- ================= Research ================= -->
+
+<section>
+  <h2>Selected Research</h2>
+
+  <div class="grid">
+
+    <!-- MOSE-GNN -->
+    <div class="card">
+      <img src="expl (4).gif" alt="MOSE-GNN visualization">
+      <h3>MOSE-GNN</h3>
+      <p>
+        A motif-based self-explaining GNN for molecular property prediction,
+        producing chemically meaningful global explanations.
+      </p>
+      <a href="https://github.com/apurvakokate/MOSE-GNN" target="_blank">GitHub →</a>
+    </div>
+
+    <!-- Reproducibility -->
+    <div class="card">
+      <h3>Reproducibility in ML</h3>
+      <p>
+        Experiments and tools focused on reproducibility, evaluation rigor,
+        and transparent reporting in machine learning research.
+      </p>
+      <a href="https://github.com/apurvakokate/Reproducibility" target="_blank">GitHub →</a>
+    </div>
+
+    <!-- Photovoltaics -->
+    <div class="card">
+      <h3>Interpretable CNNs for Photovoltaics</h3>
+      <p>
+        Explainable deep learning for guided microstructure–property exploration
+        in photovoltaic materials.
+      </p>
+      <a href="https://github.com/apurvakokate/Photovoltaics_CNN_Surrogate" target="_blank">GitHub →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= Poetry ================= -->
+
+<section>
+  <h2>Poetry</h2>
+  <div id="poetry-posts"></div>
+
+  <div id="poetry-admin" class="hidden">
+    <textarea id="poetry-input" placeholder="Write your poem here..."></textarea>
+    <button onclick="addPoem()">Post</button>
+  </div>
+</section>
+
+<!-- ================= Puzzles ================= -->
+
+<section>
+  <h2>Jigsaw Puzzles</h2>
+  <div id="puzzle-gallery" class="grid"></div>
+
+  <div id="puzzle-admin" class="hidden">
+    <input type="file" accept="image/*" onchange="addPuzzle(event)">
+  </div>
+</section>
+
+<!-- ================= Footer ================= -->
+
+<footer>
+  <p>📧 <a href="mailto:kokatea@oregonstate.edu">kokatea@oregonstate.edu</a></p>
+  <p>© Apurva Kokate</p>
+</footer>
+
+<script>
+  // --- Simple author mode ---
+  const password = prompt("Author access? Leave blank to continue:");
+  if (password === "your-secret-password") {
+    document.getElementById("poetry-admin").classList.remove("hidden");
+    document.getElementById("puzzle-admin").classList.remove("hidden");
+  }
+
+  // --- Poetry ---
+  function addPoem() {
+    const text = document.getElementById("poetry-input").value;
+    if (!text) return;
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerText = text;
+    document.getElementById("poetry-posts").prepend(div);
+    document.getElementById("poetry-input").value = "";
+  }
+
+  // --- Puzzles ---
+  function addPuzzle(event) {
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(event.target.files[0]);
+    const div = document.createElement("div");
+    div.className = "card";
+    div.appendChild(img);
+    document.getElementById("puzzle-gallery").prepend(div);
+  }
+</script>
+
+</body>
 </html>
