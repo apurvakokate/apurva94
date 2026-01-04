@@ -108,6 +108,32 @@
       min-height: 120px;
       margin-bottom: 1rem;
     }
+
+    /* Masonry-style jigsaw layout */
+    #puzzle-gallery {
+      column-count: 3;
+      column-gap: 1.5rem;
+    }
+    
+    /* Prevent cards from breaking across columns */
+    #puzzle-gallery .card {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+      padding: 0.75rem;
+    }
+    
+    /* Responsive columns */
+    @media (max-width: 900px) {
+      #puzzle-gallery {
+        column-count: 2;
+      }
+    }
+    
+    @media (max-width: 500px) {
+      #puzzle-gallery {
+        column-count: 1;
+      }
+    }
   </style>
 </head>
 
