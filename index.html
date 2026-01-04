@@ -162,12 +162,7 @@
 
 <section>
   <h2>Poetry</h2>
-  <div id="poetry-posts"></div>
-
-  <div id="poetry-admin" class="hidden">
-    <textarea id="poetry-input" placeholder="Write your poem here..."></textarea>
-    <button onclick="addPoem()">Post</button>
-  </div>
+  <div id="poetry-posts" class="grid"></div>
 </section>
 
 <!-- ================= Puzzles ================= -->
@@ -175,10 +170,6 @@
 <section>
   <h2>Jigsaw Puzzles</h2>
   <div id="puzzle-gallery" class="grid"></div>
-
-  <div id="puzzle-admin" class="hidden">
-    <input type="file" accept="image/*" onchange="addPuzzle(event)">
-  </div>
 </section>
 
 <!-- ================= Footer ================= -->
@@ -188,35 +179,64 @@
   <p>© Apurva Kokate</p>
 </footer>
 
-<script>
-  // --- Simple author mode ---
-  const password = prompt("Author access? Leave blank to continue:");
-  if (password === "author-password") {
-    document.getElementById("poetry-admin").classList.remove("hidden");
-    document.getElementById("puzzle-admin").classList.remove("hidden");
+  <script>
+  /* -------- Load poetry from /poetry/*.txt -------- */
+
+  const poetryFiles = [
+    "poetry/1.txt",
+    // add more as needed
+  ];
+
+  async function loadPoetry() {
+    const container = document.getElementById("poetry-posts");
+
+    for (const file of poetryFiles) {
+      const res = await fetch(file);
+      if (!res.ok) continue;
+
+      const text = await res.text();
+      const div = document.createElement("div");
+      div.className = "card";
+      div.style.whiteSpace = "pre-wrap";
+      div.style.fontFamily = "'Source Serif 4', serif";
+      div.innerText = text;
+
+      container.appendChild(div);
+    }
   }
 
-  // --- Poetry ---
-  function addPoem() {
-    const text = document.getElementById("poetry-input").value;
-    if (!text) return;
-    const div = document.createElement("div");
-    div.className = "card";
-    div.innerText = text;
-    document.getElementById("poetry-posts").prepend(div);
-    document.getElementById("poetry-input").value = "";
-  }
-
-  // --- Puzzles ---
-  function addPuzzle(event) {
-    const img = document.createElement("img");
-    img.src = URL.createObjectURL(event.target.files[0]);
-    const div = document.createElement("div");
-    div.className = "card";
-    div.appendChild(img);
-    document.getElementById("puzzle-gallery").prepend(div);
-  }
+  loadPoetry();
 </script>
+
+
+<script>
+  /* -------- Load jigsaw images from /jigsaw -------- */
+
+  const puzzleImages = [
+    "jigsaw/jigsaw1.jpg",
+    // add more as needed
+  ];
+
+  function loadPuzzles() {
+    const gallery = document.getElementById("puzzle-gallery");
+
+    puzzleImages.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.loading = "lazy";
+
+      const div = document.createElement("div");
+      div.className = "card";
+      div.appendChild(img);
+
+      gallery.appendChild(div);
+    });
+  }
+
+  loadPuzzles();
+</script>
+  
+
 
 </body>
 </html>
