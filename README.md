@@ -1,7 +1,6 @@
 ### Hi there 👋
 
-🔭 I’m currently working on explainable AI
-
+🔭 I’m currently working on human centric ai developement. This repositories contains code for my personal website histed at https://apurvakokate.github.io/apurva94/
 <!--
 **apurva94/apurva94** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
