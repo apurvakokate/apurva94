@@ -272,6 +272,169 @@
 
 </section>
 
+<!-- ============================================================= -->
+<!--  REFLECTIONS SECTION · paste this whole block into your page  -->
+<!--  Recommended spot: right AFTER the closing </section> of      -->
+<!--  "Research", i.e. just before the                             -->
+<!--  <!-- ===== Industry Impact ===== --> comment.                -->
+<!--                                                               -->
+<!--  Uses your existing fonts (Inter / Source Serif 4) and blue   -->
+<!--  accent. All styles are scoped under .xai-journey, so they    -->
+<!--  will NOT touch your global .card / h1 / h3 / a / button etc. -->
+<!-- ============================================================= -->
+
+<section>
+  <h2>Reflections on Explainable AI</h2>
+
+  <style>
+    .xai-journey{
+      --xj-accent:#2563eb;      /* your site blue            */
+      --xj-accent2:#1d4ed8;     /* deeper blue for gradients */
+      --xj-ink:#1f2937;         /* your body ink             */
+      --xj-muted:#5b6472;
+      --xj-line:#e6e8f0;
+      --xj-warn:#d97706;
+      --xj-bg:#ffffff;
+      --xj-surface:#f5f7fb;
+      max-width:760px;margin:0 auto;padding:clamp(20px,4vw,38px);
+      background:var(--xj-bg);color:var(--xj-ink);
+      border:1px solid var(--xj-line);border-radius:18px;
+      box-shadow:0 18px 40px -24px rgba(15,23,42,.28);
+      font-family:Inter,sans-serif;line-height:1.6;box-sizing:border-box;
+    }
+    .xai-journey *{box-sizing:border-box;}
+
+    .xai-journey .xj-eyebrow{
+      display:inline-flex;align-items:center;gap:.5em;
+      font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--xj-accent);margin:0 0 .9rem;
+    }
+    .xai-journey .xj-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;
+      background:linear-gradient(90deg,var(--xj-accent),var(--xj-accent2));}
+
+    .xai-journey .xj-title{
+      font-family:"Source Serif 4",serif;
+      margin:0 0 .5rem;font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.15;
+      font-weight:600;letter-spacing:-.01em;color:var(--xj-ink);
+    }
+    .xai-journey .xj-title .g{
+      background:linear-gradient(120deg,var(--xj-accent),var(--xj-accent2));
+      -webkit-background-clip:text;background-clip:text;color:transparent;}
+    .xai-journey .xj-lede{margin:0 0 1.25rem;color:var(--xj-muted);font-size:1rem;max-width:58ch;}
+
+    /* news ribbon */
+    .xai-journey .xj-news{
+      display:flex;gap:.85rem;align-items:flex-start;
+      background:var(--xj-surface);
+      border:1px solid var(--xj-line);border-radius:12px;
+      padding:.85rem 1rem;margin:0 0 1.9rem;
+    }
+    .xai-journey .xj-live{flex:0 0 auto;margin-top:.15rem;display:inline-flex;align-items:center;gap:.4em;
+      font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--xj-warn);}
+    .xai-journey .xj-dot{width:8px;height:8px;border-radius:50%;background:var(--xj-warn);
+      box-shadow:0 0 0 0 rgba(217,119,6,.55);animation:xj-pulse 2s infinite;}
+    @keyframes xj-pulse{0%{box-shadow:0 0 0 0 rgba(217,119,6,.5)}70%{box-shadow:0 0 0 9px rgba(217,119,6,0)}100%{box-shadow:0 0 0 0 rgba(217,119,6,0)}}
+    .xai-journey .xj-news p{margin:0;font-size:.9rem;color:var(--xj-muted);line-height:1.5;}
+    .xai-journey .xj-news a{color:var(--xj-accent);font-weight:600;}
+
+    /* phase label */
+    .xai-journey .xj-phase{display:flex;align-items:center;gap:.75rem;margin:1.4rem 0 1rem;}
+    .xai-journey .xj-phase:first-of-type{margin-top:.2rem;}
+    .xai-journey .xj-phase span{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--xj-muted);white-space:nowrap;}
+    .xai-journey .xj-phase::after{content:"";flex:1;height:1px;background:var(--xj-line);}
+
+    /* steps / timeline */
+    .xai-journey .xj-steps{list-style:none;margin:0;padding:0;position:relative;}
+    .xai-journey .xj-step{position:relative;display:grid;grid-template-columns:46px 1fr;gap:1rem;padding:0 0 1.4rem;}
+    .xai-journey .xj-step:last-child{padding-bottom:0;}
+    .xai-journey .xj-rail{position:relative;display:flex;justify-content:center;}
+    .xai-journey .xj-rail::before{content:"";position:absolute;top:44px;bottom:-1.4rem;width:2px;background:var(--xj-line);}
+    .xai-journey .xj-step:last-child .xj-rail::before{display:none;}
+    .xai-journey .xj-num{
+      width:44px;height:44px;border-radius:12px;flex:0 0 auto;z-index:1;
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;font-size:1rem;color:#fff;
+      background:linear-gradient(135deg,var(--xj-accent),var(--xj-accent2));
+      box-shadow:0 8px 18px -8px rgba(37,99,235,.7);
+    }
+    .xai-journey .xj-body h3{margin:.35rem 0 .3rem;font-size:1.05rem;font-weight:600;letter-spacing:-.01em;color:var(--xj-ink);}
+    .xai-journey .xj-body p{margin:0;color:var(--xj-muted);font-size:.95rem;}
+
+    /* the "double-edged sword" gets a warm accent */
+    .xai-journey .xj-step.is-warn .xj-num{background:linear-gradient(135deg,#f59e0b,var(--xj-warn));box-shadow:0 8px 18px -8px rgba(217,119,6,.7);}
+    .xai-journey .xj-step.is-warn .xj-body h3::after{content:" \2694";}
+
+    .xai-journey .xj-foot{margin-top:1.9rem;padding-top:1.1rem;border-top:1px solid var(--xj-line);
+      font-size:.78rem;color:var(--xj-muted);line-height:1.6;}
+    .xai-journey .xj-foot b{color:var(--xj-ink);font-weight:600;}
+    .xai-journey .xj-foot a{color:var(--xj-accent);}
+    .xai-journey .xj-sign{margin-top:.7rem;font-style:italic;color:var(--xj-muted);}
+  </style>
+
+  <article class="xai-journey" aria-label="A decade in explainable AI">
+    <p class="xj-eyebrow">A decade in explainable AI</p>
+    <p class="xj-title">Call it a kill switch, or call it <span class="g">AI governance.</span></p>
+    <p class="xj-lede">Understanding AI models is central to humans staying in control of them. I've spent ten years researching how expert knowledge and AI development can move forward together. Here is what I've learned &mdash; in the order this field grew up.</p>
+
+    <div class="xj-news">
+      <span class="xj-live"><span class="xj-dot"></span>In the news</span>
+      <p>Sept 2026 &mdash; Congress's <a href="https://www.congress.gov/bill/119th-congress/house-bill/9917" target="_blank" rel="noopener">AI Kill Switch Act (H.R. 9917)</a> would force frontier labs to keep the power to shut a model down, while regulators turn <a href="https://cogentinfo.com/resources/the-xai-reckoning-turning-explainability-into-a-compliance-requirement-by-2026" target="_blank" rel="noopener">explainability into a compliance requirement</a>. Control starts with understanding.</p>
+    </div>
+
+    <div class="xj-phase"><span>Phase I &middot; The reckoning</span></div>
+    <ol class="xj-steps">
+      <li class="xj-step">
+        <div class="xj-rail"><div class="xj-num">01</div></div>
+        <div class="xj-body">
+          <h3>Refusing the black box</h3>
+          <p>Saying no to opaque AI decisions was the first stepping stone. Requiring an explanation for every decision was recognised as essential to building the appropriate amount of trust.</p>
+        </div>
+      </li>
+      <li class="xj-step">
+        <div class="xj-rail"><div class="xj-num">02</div></div>
+        <div class="xj-body">
+          <h3>Trust can be manufactured</h3>
+          <p>Trust can be manufactured incorrectly. There is no single good explanation &mdash; the idea of an explanation is deeply subjective. An explanation engineered to <em>look</em> sensible can nudge a user into trusting a wrong decision.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="xj-phase"><span>Phase II &middot; The blueprint</span></div>
+    <ol class="xj-steps" start="3">
+      <li class="xj-step">
+        <div class="xj-rail"><div class="xj-num">03</div></div>
+        <div class="xj-body">
+          <h3>Explanation by design</h3>
+          <p>Explanations should never be an afterthought. They must be consumed by both the AI and the human &mdash; acting as information bottlenecks inside the model &mdash; and can be made trustworthy by design.</p>
+        </div>
+      </li>
+      <li class="xj-step">
+        <div class="xj-rail"><div class="xj-num">04</div></div>
+        <div class="xj-body">
+          <h3>Grounded in expert knowledge</h3>
+          <p>We have worked hard, as humans, to understand the rules of the world we live in. Explanations must speak that same language &mdash; so the expert can make the final call.</p>
+        </div>
+      </li>
+      <li class="xj-step is-warn">
+        <div class="xj-rail"><div class="xj-num">05</div></div>
+        <div class="xj-body">
+          <h3>A double-edged sword</h3>
+          <p>Explanations do good when they keep AI safe &mdash; but the same map that reveals <em>why</em> a model decides also exposes the regions its predictions are most sensitive to, opening the door to attack.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="xj-foot">
+      <b>Sources</b> &middot;
+      <a href="https://www.congress.gov/bill/119th-congress/house-bill/9917" target="_blank" rel="noopener">AI Kill Switch Act, H.R. 9917 (2026)</a> &middot;
+      <a href="https://cogentinfo.com/resources/the-xai-reckoning-turning-explainability-into-a-compliance-requirement-by-2026" target="_blank" rel="noopener">The XAI Reckoning (2026)</a> &middot;
+      <a href="https://arxiv.org/abs/2510.03623" target="_blank" rel="noopener">Explainable but Vulnerable: Adversarial Attacks on XAI (2026)</a>
+      <div class="xj-sign">Ten years in explainable AI &mdash; and the field is only now catching up to the questions.</div>
+    </div>
+  </article>
+</section>
+
+
 <!-- ================= Industry Impact ================= -->
 
 <section>
